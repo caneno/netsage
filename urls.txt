@@ -1,7 +1,0 @@
-https://www.google.com
-https://www.github.com
-https://magento.softwaretestingboard.com
-https://facebook.com
-https://ypdvcsa.yrcs.local/
-https://www.mandarichlaw.com
-https://ypdessprd/nwsidentityserver/Account/Login?ReturnUrl=%2Fnwsidentityserver%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Duser-management%26redirect_uri%3Dhttps%253A%252F%252Fypdessprd%252Fnwsusermanagement%252Fsignin.html%26response_type%3Did_token%2520token%26scope%3Dprofile%2520openid%2520security%2520general-claims%2520agency-admin%26state%3D03f83d6c863c4c3c8cbf123813f48b4d%26nonce%3Dce910782583d42048435ed3eff7c73a7
