@@ -1,14 +1,15 @@
 import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
+import urllib3
 
 # Suppress the InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class Webcheck:
     def __init__(self, url, file):
         self.url = url
         self.file = file
         self.urlList = []
+        self.single_url = ""
 
     def read_url(self):
         try:
@@ -17,6 +18,8 @@ class Webcheck:
                     for line in file:
                         ln = line.strip()
                         self.urlList.append(ln)
+            else:
+                self.single_url = self.url
 
         except FileNotFoundError:
             print("File was not found")
@@ -25,10 +28,14 @@ class Webcheck:
 
     def web_status(self):
         try:
-            if self.file:
+            if self.urlList:
                 for url in self.urlList:
                     resp = requests.get(url, verify=False)
                     print(f"{url}\nStatus Code: {resp.status_code}\nResponse Time: {resp.elapsed}")
+            else:
+                resp = requests.get(self.single_url, verify=False)
+                print(f"{self.single_url}\nStatus Code: {resp.status_code}\nResponse Time: {resp.elapsed}")
+
         except requests.exceptions.HTTPError as e:
             print(f"HTTP Error: {e}")
         except requests.exceptions.ConnectionError as e:
